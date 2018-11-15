@@ -84,14 +84,17 @@
 
 
 
+<meta name="description" content="前言偶然一次机会接触到hexo,然后就走进了这个大坑了。 正文仅此记录走过的坑：首先我的hexo是2.8.3,实在是在3.X上受挫过多，前端不熟的我很无奈的。（好吧） 大二了，学了点东西，现在才发现这些还是比较简单的，用Linux装了hexo,总算是装好了，其实没用多久。可能是以前的经验吧，哈哈。 首先Win10你得有git和node.js,自行百度下载吧，我写这篇文章的目的在坑。对于Hexo 2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="张焕鑫">
-<meta property="og:url" content="http://yoursite.com/2018/11/15/win10下用hexo搭建个人博客/index.html">
+<meta property="og:title" content="Win10,Linux下用hexo搭建个人博客">
+<meta property="og:url" content="http://yoursite.com/2018/11/16/win10下用hexo搭建个人博客/index.html">
 <meta property="og:site_name" content="张焕鑫">
+<meta property="og:description" content="前言偶然一次机会接触到hexo,然后就走进了这个大坑了。 正文仅此记录走过的坑：首先我的hexo是2.8.3,实在是在3.X上受挫过多，前端不熟的我很无奈的。（好吧） 大二了，学了点东西，现在才发现这些还是比较简单的，用Linux装了hexo,总算是装好了，其实没用多久。可能是以前的经验吧，哈哈。 首先Win10你得有git和node.js,自行百度下载吧，我写这篇文章的目的在坑。对于Hexo 2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-15T15:46:14.442Z">
+<meta property="og:updated_time" content="2018-11-15T16:10:44.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="张焕鑫">
+<meta name="twitter:title" content="Win10,Linux下用hexo搭建个人博客">
+<meta name="twitter:description" content="前言偶然一次机会接触到hexo,然后就走进了这个大坑了。 正文仅此记录走过的坑：首先我的hexo是2.8.3,实在是在3.X上受挫过多，前端不熟的我很无奈的。（好吧） 大二了，学了点东西，现在才发现这些还是比较简单的，用Linux装了hexo,总算是装好了，其实没用多久。可能是以前的经验吧，哈哈。 首先Win10你得有git和node.js,自行百度下载吧，我写这篇文章的目的在坑。对于Hexo 2">
 
 
 
@@ -109,7 +112,7 @@
   };
 </script>
 
-  <title>  | 张焕鑫 </title>
+  <title> Win10,Linux下用hexo搭建个人博客 | 张焕鑫 </title>
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -229,7 +232,7 @@
             
             
               
-                
+                Win10,Linux下用hexo搭建个人博客
               
             
           </h1>
@@ -241,8 +244,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-11-15T23:46:14+08:00" content="2018-11-15">
-              2018-11-15
+            <time itemprop="dateCreated" datetime="2018-11-16T00:10:44+08:00" content="2018-11-16">
+              2018-11-16
             </time>
           </span>
 
@@ -269,7 +272,15 @@
       
 
       
-        
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>偶然一次机会接触到hexo,然后就走进了这个大坑了。</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><p>仅此记录走过的坑：首先我的hexo是2.8.3,实在是在3.X上受挫过多，前端不熟的我很无奈的。（好吧）</p>
+<p>大二了，学了点东西，现在才发现这些还是比较简单的，用Linux装了hexo,总算是装好了，其实没用多久。可能是以前的经验吧，哈哈。</p>
+<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><h4 id="Win10"><a href="#Win10" class="headerlink" title="Win10"></a>Win10</h4><p>你得有git和node.js,自行百度下载吧，我写这篇文章的目的在坑。对于Hexo 2.x，您必须安装<a href="mailto:hexo-renderer-marked@0.1" target="_blank" rel="noopener">hexo-renderer-marked@0.1</a>和<a href="mailto:hexo-renderer-stylus@0.1" target="_blank" rel="noopener">hexo-renderer-stylus@0.1</a><br>试了几种_config.yml的配置方式，我使用的hexo(2.8.3)版本只有下面这种方式是两个服务器都可以成功push的。<br>还有就是格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">	 type: github</span><br><span class="line">     repo: git@github.com:username/project.github.io.git</span><br><span class="line">	 branch: master</span><br></pre></td></tr></table></figure>
+<p>​    是这样的。</p>
+<h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>这次直接装,去了hexo官网看了下，把一些原理搞懂就简单多了，事实证明还是要懂原理好干活。hexo,装完记得配置下环境，因为用nodejs工具npm下的，所以在node文件夹下找到，hexo,建立软连接到/usr/local/bin下，然后加装个hexo server(各位这种东西想必各种文件教程都有，主要对hexo 3.x的要加装),配置config文件。然后就搞定啦。</p>
+<h4 id="ssh"><a href="#ssh" class="headerlink" title="ssh:"></a>ssh:</h4><h5 id="https-协议还是会跳过github上的秘钥，所以记得把配置文件改下"><a href="#https-协议还是会跳过github上的秘钥，所以记得把配置文件改下" class="headerlink" title="https 协议还是会跳过github上的秘钥，所以记得把配置文件改下."></a>https 协议还是会跳过github上的秘钥，所以记得把配置文件改下.</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:usrname/project.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<h5 id="这个是hexo-cli的配置。"><a href="#这个是hexo-cli的配置。" class="headerlink" title="这个是hexo-cli的配置。"></a>这个是hexo-cli的配置。</h5>
       
     </div>
 
@@ -397,7 +408,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先"><span class="nav-number">2.1.</span> <span class="nav-text">首先</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Win10"><span class="nav-number">2.1.0.1.</span> <span class="nav-text">Win10</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux"><span class="nav-number">2.1.0.2.</span> <span class="nav-text">Linux</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ssh"><span class="nav-number">2.1.0.3.</span> <span class="nav-text">ssh:</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#https-协议还是会跳过github上的秘钥，所以记得把配置文件改下"><span class="nav-number">2.1.0.3.1.</span> <span class="nav-text">https 协议还是会跳过github上的秘钥，所以记得把配置文件改下.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#这个是hexo-cli的配置。"><span class="nav-number">2.1.0.3.2.</span> <span class="nav-text">这个是hexo-cli的配置。</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
