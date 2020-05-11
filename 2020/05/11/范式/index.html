@@ -6,15 +6,15 @@
 
 
 <html class="theme-next mist use-motion">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -63,41 +63,40 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="Hexo, NexT">
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
 
 
 
-<meta name="description" content="范式(1NF,2NF,3NF,BCNF)名词定义：关系可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。 码：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那">
+<meta name="description" content="名词定义：关系：可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。 码：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。一张表中可以有超过一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关系数据库中的范式（1NF,2NF,3NF,BCNF）">
-<meta property="og:url" content="http://yoursite.com/2020/05/11/范式/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/05/11/%E8%8C%83%E5%BC%8F/index.html">
 <meta property="og:site_name" content="张焕鑫">
-<meta property="og:description" content="范式(1NF,2NF,3NF,BCNF)名词定义：关系可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。 码：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/home/zhang/文档/blog/source/_posts/范式/B1.png">
-<meta property="og:image" content="http://yoursite.com/home/zhang/文档/blog/source/_posts/范式/b2.png">
-<meta property="og:updated_time" content="2020-05-11T08:07:15.268Z">
+<meta property="og:description" content="名词定义：关系：可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。 码：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。一张表中可以有超过一个">
+<meta property="og:image" content="http://yoursite.com/images/B1.png">
+<meta property="og:image" content="http://yoursite.com/images/b2.png">
+<meta property="article:published_time" content="2020-05-11T07:47:41.000Z">
+<meta property="article:modified_time" content="2020-05-11T08:53:50.636Z">
+<meta property="article:author" content="zhx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关系数据库中的范式（1NF,2NF,3NF,BCNF）">
-<meta name="twitter:description" content="范式(1NF,2NF,3NF,BCNF)名词定义：关系可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。 码：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那">
-<meta name="twitter:image" content="http://yoursite.com/home/zhang/文档/blog/source/_posts/范式/B1.png">
+<meta name="twitter:image" content="http://yoursite.com/images/B1.png">
 
 
 
@@ -116,9 +115,9 @@
 </script>
 
   <title> 关系数据库中的范式（1NF,2NF,3NF,BCNF） | 张焕鑫 </title>
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -139,12 +138,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
+    <a href="/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">张焕鑫</span>
       <span class="logo-line-after"><i></i></span>
@@ -171,7 +170,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             首页
           </a>
@@ -181,7 +180,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
           </a>
@@ -191,7 +190,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
           </a>
@@ -224,7 +223,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -275,7 +274,7 @@
       
 
       
-        <h1 id="范式-1NF-2NF-3NF-BCNF"><a href="#范式-1NF-2NF-3NF-BCNF" class="headerlink" title="范式(1NF,2NF,3NF,BCNF)"></a>范式(1NF,2NF,3NF,BCNF)</h1><p>名词定义：<strong>关系</strong>可以理解为数据表。<strong>关系模式</strong>与<strong>关系</strong>的区别可以理解成“类”跟“对象”的区别。<br>关系模式就是数据表的结构。</p>
+        <h3 id="名词定义："><a href="#名词定义：" class="headerlink" title="名词定义："></a>名词定义：</h3><p><strong>关系</strong>：可以理解为数据表。<strong>关系模式</strong>与<strong>关系</strong>的区别可以理解成“类”跟“对象”的区别。<br>关系模式就是数据表的结构。</p>
 <p><strong>码</strong>：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），<br>那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。<br>一张表中可以有超过一个码。（实际应用中为了方便，通常选择其中的一个码作为主码） </p>
 <p><strong>完全函数依赖分析</strong></p>
 <p>成绩依赖于学号和课程号两个字段的组合；但只知道学号无法确定成绩，同理只知道课程号也无法确定成绩；只有学号和课程号组合在一起才能标识哪个学生哪门课程的成绩；</p>
@@ -287,14 +286,15 @@
 <p>（学号，课程号）—–&gt;班级是“部分函数依赖”</p>
 <p>课程名和学时数只依赖于课程号，</p>
 <p>因此（学号，课程号）—–&gt;课程名是“部分函数依赖”</p>
-<h5 id="传递函数依赖分析"><a href="#传递函数依赖分析" class="headerlink" title="传递函数依赖分析"></a><strong>传递函数依赖分析</strong></h5><p>班主任依赖于班级，与学号无关，与课程号也无关</p>
+<p><strong>传递函数依赖分析</strong></p>
+<p>班主任依赖于班级，与学号无关，与课程号也无关</p>
 <p>又因班级依赖于学号所以班主任间接依赖于学号</p>
 <p>因此，（学号，课程号）—–&gt;班主任是“传递函数依赖”</p>
 <p>注：满足高范式则必满足低范式。</p>
-<h3 id="第一范式-1NF"><a href="#第一范式-1NF" class="headerlink" title="第一范式(1NF)"></a>第一范式(1NF)</h3><p>定义：符合1NF的关系中的每个属性都不可再分。<br><img src="/home/zhang/文档/blog/source/_posts/范式/B1.png" alt="B1"><br>1NF是所有关系型数据库的最基本的要求，即所有关系型数据库中的数据表都要满足第一范式。<br>缺点：存在数据冗余过大，插入异常，删除异常，修改异常的问题<br><img src="/home/zhang/文档/blog/source/_posts/范式/b2.png" alt="B2"><br>1.每一名学生的学号、姓名、系名、系主任这些数据重复多次。<br>每个系与对应的系主任的数据也重复多次————数据冗余过大<br>2.需要所有数据都齐了才能插入————插入异常<br>3.将学生数据删除，则系与系主任的数据也会一起消失————删除异常<br>4.将某一学生转入其他系，需要修改多条记录中的系与系主任的数据————修改异常</p>
-<h3 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h3><p>满足1NF且非主属性都完全或传递函数依赖于码<br>消除第一范式中的非主属性对码的部分函数依赖。方法只有一种————模式分解。即将表拆分成更小的表。</p>
-<h3 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h3><p>消除第二范式中的非主属性对码的传递函数依赖，即只剩下完全函数依赖。</p>
-<h3 id="BCNF范式"><a href="#BCNF范式" class="headerlink" title="BCNF范式"></a>BCNF范式</h3><p>消除第三范式中主属性对码的部分函数依赖和传递函数依赖</p>
+<h4 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h4><h5 id="第一范式-1NF"><a href="#第一范式-1NF" class="headerlink" title="第一范式(1NF)"></a>第一范式(1NF)</h5><p>定义：符合1NF的关系中的每个属性都不可再分。<br><img src="/images/B1.png" alt="B1"><br>1NF是所有关系型数据库的最基本的要求，即所有关系型数据库中的数据表都要满足第一范式。<br>缺点：存在数据冗余过大，插入异常，删除异常，修改异常的问题<br><img src="/images/b2.png" alt="B2"><br>1.每一名学生的学号、姓名、系名、系主任这些数据重复多次。<br>每个系与对应的系主任的数据也重复多次————数据冗余过大<br>2.需要所有数据都齐了才能插入————插入异常<br>3.将学生数据删除，则系与系主任的数据也会一起消失————删除异常<br>4.将某一学生转入其他系，需要修改多条记录中的系与系主任的数据————修改异常</p>
+<h5 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h5><p>满足1NF且非主属性都完全或传递函数依赖于码<br>消除第一范式中的非主属性对码的部分函数依赖。方法只有一种————模式分解。即将表拆分成更小的表。</p>
+<h5 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h5><p>消除第二范式中的非主属性对码的传递函数依赖，即只剩下完全函数依赖。</p>
+<h5 id="BCNF范式"><a href="#BCNF范式" class="headerlink" title="BCNF范式"></a>BCNF范式</h5><p>消除第三范式中主属性对码的部分函数依赖和传递函数依赖</p>
 
       
     </div>
@@ -319,7 +319,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/20/父类引用指向子类对象/" rel="next" title="父类引用指向子类对象">
+              <a href="/2018/11/20/%E7%88%B6%E7%B1%BB%E5%BC%95%E7%94%A8%E6%8C%87%E5%90%91%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1/" rel="next" title="父类引用指向子类对象">
                 <i class="fa fa-chevron-left"></i> 父类引用指向子类对象
               </a>
             
@@ -373,7 +373,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -383,8 +383,10 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="zhx">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="zhx" />
           <p class="site-author-name" itemprop="name">zhx</p>
           <p class="site-description motion-element" itemprop="description"></p>
         </div>
@@ -423,7 +425,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#范式-1NF-2NF-3NF-BCNF"><span class="nav-number">1.</span> <span class="nav-text">范式(1NF,2NF,3NF,BCNF)</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#传递函数依赖分析"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">传递函数依赖分析</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#第一范式-1NF"><span class="nav-number">1.0.1.</span> <span class="nav-text">第一范式(1NF)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二范式（2NF）"><span class="nav-number">1.0.2.</span> <span class="nav-text">第二范式（2NF）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三范式（3NF）"><span class="nav-number">1.0.3.</span> <span class="nav-text">第三范式（3NF）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BCNF范式"><span class="nav-number">1.0.4.</span> <span class="nav-text">BCNF范式</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#名词定义："><span class="nav-number">1.</span> <span class="nav-text">名词定义：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范式"><span class="nav-number">1.1.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一范式-1NF"><span class="nav-number">1.1.1.</span> <span class="nav-text">第一范式(1NF)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二范式（2NF）"><span class="nav-number">1.1.2.</span> <span class="nav-text">第二范式（2NF）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三范式（3NF）"><span class="nav-number">1.1.3.</span> <span class="nav-text">第三范式（3NF）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BCNF范式"><span class="nav-number">1.1.4.</span> <span class="nav-text">BCNF范式</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -439,7 +441,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2020</span>
@@ -450,12 +452,12 @@
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  由 <a class="theme-link" href="http://hexo.io" target="_blank" rel="noopener">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
   主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">
     NexT.Mist
   </a>
 </div>
