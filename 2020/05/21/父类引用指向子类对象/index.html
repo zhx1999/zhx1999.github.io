@@ -20,21 +20,18 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="名词定义：关系：可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。">
+  <meta name="description" content="父类引用指向子类对象指的是： 例如父类Animal，子类Cat,Dog。其中Animal可以是类也可以是接口，Cat和Dog是继承或实现Animal的子类。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关系数据库中的范式（1NF,2NF,3NF,BCNF）">
-<meta property="og:url" content="http://yoursite.com/2020/05/11/%E8%8C%83%E5%BC%8F/index.html">
+<meta property="og:title" content="父类引用指向子类对象">
+<meta property="og:url" content="http://yoursite.com/2020/05/21/%E7%88%B6%E7%B1%BB%E5%BC%95%E7%94%A8%E6%8C%87%E5%90%91%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1/index.html">
 <meta property="og:site_name" content="咩灭乜">
-<meta property="og:description" content="名词定义：关系：可以理解为数据表。关系模式与关系的区别可以理解成“类”跟“对象”的区别。关系模式就是数据表的结构。">
-<meta property="og:image" content="http://yoursite.com/images/B1.png">
-<meta property="og:image" content="http://yoursite.com/images/b2.png">
-<meta property="article:published_time" content="2020-05-11T07:47:41.000Z">
-<meta property="article:modified_time" content="2020-05-20T16:29:07.213Z">
+<meta property="og:description" content="父类引用指向子类对象指的是： 例如父类Animal，子类Cat,Dog。其中Animal可以是类也可以是接口，Cat和Dog是继承或实现Animal的子类。">
+<meta property="article:published_time" content="2020-05-20T16:29:50.292Z">
+<meta property="article:modified_time" content="2020-05-20T16:29:50.292Z">
 <meta property="article:author" content="zhx">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/B1.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/05/11/%E8%8C%83%E5%BC%8F/">
+<link rel="canonical" href="http://yoursite.com/2020/05/21/%E7%88%B6%E7%B1%BB%E5%BC%95%E7%94%A8%E6%8C%87%E5%90%91%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1/">
 
 
 <script id="page-configurations">
@@ -47,7 +44,7 @@
   };
 </script>
 
-  <title>关系数据库中的范式（1NF,2NF,3NF,BCNF） | 咩灭乜</title>
+  <title>父类引用指向子类对象 | 咩灭乜</title>
   
 
 
@@ -178,7 +175,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/11/%E8%8C%83%E5%BC%8F/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/%E7%88%B6%E7%B1%BB%E5%BC%95%E7%94%A8%E6%8C%87%E5%90%91%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -191,7 +188,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          关系数据库中的范式（1NF,2NF,3NF,BCNF）
+          父类引用指向子类对象
         </h1>
 
         <div class="post-meta">
@@ -201,15 +198,8 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-05-11 15:47:41" itemprop="dateCreated datePublished" datetime="2020-05-11T15:47:41+08:00">2020-05-11</time>
+              <time title="Created: 2020-05-21 00:29:50" itemprop="dateCreated datePublished" datetime="2020-05-21T00:29:50+08:00">2020-05-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-21 00:29:07" itemprop="dateModified" datetime="2020-05-21T00:29:07+08:00">2020-05-21</time>
-              </span>
 
           
 
@@ -222,29 +212,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="名词定义："><a href="#名词定义：" class="headerlink" title="名词定义："></a>名词定义：</h3><p><strong>关系</strong>：可以理解为数据表。<strong>关系模式</strong>与<strong>关系</strong>的区别可以理解成“类”跟“对象”的区别。<br>关系模式就是数据表的结构。</p>
+        <p>父类引用指向子类对象指的是：</p>
+<p>例如父类Animal，子类Cat,Dog。其中Animal可以是类也可以是接口，Cat和Dog是继承或实现Animal的子类。</p>
 <a id="more"></a>
 
-<p><strong>码</strong>：设 K 为某表中的一个属性或属性组，若除 K 之外的所有属性都完全函数依赖于 K（这个“完全”不要漏了），<br>那么我们称 K 为候选码，简称为码。在实际中我们通常可以理解为：假如当 K 确定的情况下，该表除 K 之外的所有属性的值也就随之确定，那么 K 就是码。<br>一张表中可以有超过一个码。（实际应用中为了方便，通常选择其中的一个码作为主码） </p>
-<p><strong>完全函数依赖分析</strong></p>
-<p>成绩依赖于学号和课程号两个字段的组合；但只知道学号无法确定成绩，同理只知道课程号也无法确定成绩；只有学号和课程号组合在一起才能标识哪个学生哪门课程的成绩；</p>
-<p>因此（学号，课程号）—-&gt;成绩  是“完全函数依赖”。</p>
-<p><strong>部分函数依赖分析</strong></p>
-<p>姓名、性别和班级三个属性只依赖于主键中的学号，与“课程号”无关。</p>
-<p>因此（学号，课程号）—-&gt;姓名是“部分函数依赖”</p>
-<p>（学号，课程号）—-&gt;性别是“部分函数依赖”</p>
-<p>（学号，课程号）—–&gt;班级是“部分函数依赖”</p>
-<p>课程名和学时数只依赖于课程号，</p>
-<p>因此（学号，课程号）—–&gt;课程名是“部分函数依赖”</p>
-<p><strong>传递函数依赖分析</strong></p>
-<p>班主任依赖于班级，与学号无关，与课程号也无关</p>
-<p>又因班级依赖于学号所以班主任间接依赖于学号</p>
-<p>因此，（学号，课程号）—–&gt;班主任是“传递函数依赖”</p>
-<p>注：满足高范式则必满足低范式。</p>
-<h4 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h4><h5 id="第一范式-1NF"><a href="#第一范式-1NF" class="headerlink" title="第一范式(1NF)"></a>第一范式(1NF)</h5><p>定义：符合1NF的关系中的每个属性都不可再分。<br><img src="/images/B1.png" alt="B1"><br>1NF是所有关系型数据库的最基本的要求，即所有关系型数据库中的数据表都要满足第一范式。<br>缺点：存在数据冗余过大，插入异常，删除异常，修改异常的问题<br><img src="/images/b2.png" alt="B2"><br>1.每一名学生的学号、姓名、系名、系主任这些数据重复多次。<br>每个系与对应的系主任的数据也重复多次————数据冗余过大<br>2.需要所有数据都齐了才能插入————插入异常<br>3.将学生数据删除，则系与系主任的数据也会一起消失————删除异常<br>4.将某一学生转入其他系，需要修改多条记录中的系与系主任的数据————修改异常</p>
-<h5 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h5><p>满足1NF且非主属性都完全或传递函数依赖于码<br>消除第一范式中的非主属性对码的部分函数依赖。方法只有一种————模式分解。即将表拆分成更小的表。</p>
-<h5 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h5><p>消除第二范式中的非主属性对码的传递函数依赖，即只剩下完全函数依赖。</p>
-<h5 id="BCNF范式"><a href="#BCNF范式" class="headerlink" title="BCNF范式"></a>BCNF范式</h5><p>消除第三范式中主属性对码的部分函数依赖和传递函数依赖</p>
+<p>Animal animal = new Cat();</p>
+<p>即声明的是父类，实际指向的是子类的一个对象。</p>
+<p>那这么使用的优点是什么，为什么要这么用？可以用这几个关键词来概括：<strong>多态、动态链接，向上转型</strong></p>
+<p>也有人说这是面向接口编程，可以降低程序的耦合性，即调用者不必关心调用的是哪个对象，只需要针对接口编程就可以了，被调用者对于调用者是完全透明的。让你更关注父类能做什么,而不去关心子类是具体怎么做的,你可以随时替换一个子类,也就是随时替换一个具体实现,而不用修改其他.</p>
+<p>以后结合设计模式（如工厂模式，代理模式）和反射机制可能有更深理解。</p>
+<p>下面介绍java的多态性和其中的动态链接，向上转型：</p>
+<p>面向对象的三个特征：封装、继承和多态；</p>
+<p>封装隐藏了类的内部实现机制，可以在不影响使用者的前提下修改类的内部结构，同时保护了数据；</p>
+<p>继承是为了重用父类代码，子类继承父类就拥有了父类的成员。</p>
+<p><strong>方法的重写、重载与动态连接构成多态性。</strong>Java之所以引入多态的概念，原因之一是它在类的继承问题上和C++不同，后者允许多继承，这确实给其带来的非常强大的功能，但是复杂的继承关系也给C++开发者带来了更大的麻烦，为了规避风险，Java只允许单继承，派生类与基类间有IS-A的关系（即“猫”is  a  “动物”）。这样做虽然保证了继承关系的简单明了，但是势必在功能上有很大的限制，所以，Java引入了多态性的概念以弥补这点的不足，此外，抽象类和接口也是解决单继承规定限制的重要手段。同时，多态也是面向对象编程的精髓所在。</p>
+<p>理解多态，首先要知道“向上转型”。</p>
+<p>我定义了一个子类Cat，它继承了Animal类，那么后者就是前者是父类。我可以通过 </p>
+<p>Cat c = new Cat();<br>实例化一个Cat的对象，这个不难理解。但当我这样定义时： </p>
+<p>Animal a = new Cat();<br>这代表什么意思呢？ </p>
+<p>很简单，它表示我定义了一个Animal类型的引用，指向新建的Cat类型的对象。<strong>由于Cat是继承自它的父类Animal，所以Animal类型的引用是可以指向Cat类型的对象的。这就是“向上转型”。</strong></p>
+<p>那么这样做有什么意义呢？<strong>*因为子类是对父类的一个改进和扩充，所以一般子类在功能上较父类更强大，属性较父类更独特，  定义一个父类类型的引用指向一个子类的对象既可以使用子类强大的功能，又可以抽取父类的共性。  所以，父类类型的引用可以调用父类中定义的所有属性和方法，而对于子类中定义而父类中没有的方法，父类引用是无法调用的*</strong>； </p>
+<p><strong>那什么是动态链接呢？当父类中的一个方法只有在父类中定义而在子类中没有重写的情况下，才可以被父类类型的引用调用； 对于父类中定义的方法，如果子类中重写了该方法，那么父类类型的引用将会调用子类中的这个方法，这就是动态连接。</strong></p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">package test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">V1</span>&#123;</span></span><br><span class="line">	 <span class="keyword">public</span> <span class="keyword">int</span> x=<span class="number">2</span>;</span><br><span class="line">	 V1()&#123; System.out.<span class="built_in">println</span>(<span class="string">"V1"</span>); &#125; </span><br><span class="line">	 <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 System.out.<span class="built_in">println</span>(<span class="string">"v1"</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">V2</span> <span class="title">extends</span> <span class="title">V1</span>&#123;</span></span><br><span class="line">	 <span class="keyword">public</span> <span class="keyword">int</span> x=<span class="number">3</span>;</span><br><span class="line">	 V2()&#123; System.out.<span class="built_in">println</span>(<span class="string">"V2"</span>); &#125;</span><br><span class="line">	 <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 System.out.<span class="built_in">println</span>(<span class="string">"v2"</span>);</span><br><span class="line">	 &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">test</span>&#123;</span></span><br><span class="line">	 <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">String</span>[] s)</span></span>&#123;</span><br><span class="line">	   V1 e1=<span class="keyword">new</span> V2();	</span><br><span class="line">	   System.out.<span class="built_in">println</span>(e1.x);	</span><br><span class="line">	   e1.<span class="built_in">print</span>();&#125; &#125;</span><br></pre></td></tr></table></figure>
+
+
 
     </div>
 
@@ -270,12 +261,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2018/11/14/Java%E4%BB%A5%E5%8F%8Aswing%E5%9B%BE%E5%BD%A2%E7%95%8C%E9%9D%A2%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="prev" title="Java,mysql以及swing图形界面使用总结">
-      <i class="fa fa-chevron-left"></i> Java,mysql以及swing图形界面使用总结
+    <a href="/2020/05/11/%E8%8C%83%E5%BC%8F/" rel="prev" title="关系数据库中的范式（1NF,2NF,3NF,BCNF）">
+      <i class="fa fa-chevron-left"></i> 关系数据库中的范式（1NF,2NF,3NF,BCNF）
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/05/21/%E7%88%B6%E7%B1%BB%E5%BC%95%E7%94%A8%E6%8C%87%E5%90%91%E5%AD%90%E7%B1%BB%E5%AF%B9%E8%B1%A1/" rel="next" title="父类引用指向子类对象">
-      父类引用指向子类对象 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/05/21/win10%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="Win10,Linux下用hexo搭建个人博客">
+      Win10,Linux下用hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -335,7 +326,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#名词定义："><span class="nav-number">1.</span> <span class="nav-text">名词定义：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#范式"><span class="nav-number">1.1.</span> <span class="nav-text">范式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一范式-1NF"><span class="nav-number">1.1.1.</span> <span class="nav-text">第一范式(1NF)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二范式（2NF）"><span class="nav-number">1.1.2.</span> <span class="nav-text">第二范式（2NF）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三范式（3NF）"><span class="nav-number">1.1.3.</span> <span class="nav-text">第三范式（3NF）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BCNF范式"><span class="nav-number">1.1.4.</span> <span class="nav-text">BCNF范式</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
