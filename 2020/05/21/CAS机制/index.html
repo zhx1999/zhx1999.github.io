@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"zhx1999.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="前言最近发现之前写的爬学校教务系统的爬虫，其实可以通过另一个网站绕过验证码，可怜我的机器学习验证码识别度还只有55%，突然才发现不需要验证码也可以了。然后就发现另一个网站有重定向的问题，然后又发现了CAS认证机制,不过跟我这篇应该没多大关系吧。想着写线程，就来学习一下Java的CAS机制，顺便做个笔记。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://zhx1999.github.io/2018/01/23/hello-world/index.html">
+<meta property="og:title" content="CAS机制">
+<meta property="og:url" content="http://zhx1999.github.io/2020/05/21/CAS%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="咩灭乜">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="前言最近发现之前写的爬学校教务系统的爬虫，其实可以通过另一个网站绕过验证码，可怜我的机器学习验证码识别度还只有55%，突然才发现不需要验证码也可以了。然后就发现另一个网站有重定向的问题，然后又发现了CAS认证机制,不过跟我这篇应该没多大关系吧。想着写线程，就来学习一下Java的CAS机制，顺便做个笔记。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-01-23T09:14:51.000Z">
-<meta property="article:modified_time" content="2020-05-20T17:26:27.624Z">
+<meta property="article:published_time" content="2020-05-21T08:30:37.000Z">
+<meta property="article:modified_time" content="2020-05-21T08:38:37.618Z">
 <meta property="article:author" content="zhx">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="Java CAS 并发">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://zhx1999.github.io/2018/01/23/hello-world/">
+<link rel="canonical" href="http://zhx1999.github.io/2020/05/21/CAS%E6%9C%BA%E5%88%B6/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Hello World | 咩灭乜</title>
+  <title>CAS机制 | 咩灭乜</title>
   
 
 
@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhx1999.github.io/2018/01/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://zhx1999.github.io/2020/05/21/CAS%E6%9C%BA%E5%88%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -185,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          CAS机制
         </h1>
 
         <div class="post-meta">
@@ -194,23 +194,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2018-01-23 17:14:51" itemprop="dateCreated datePublished" datetime="2018-01-23T17:14:51+08:00">2018-01-23</time>
+              <time title="创建时间：2020-05-21 16:30:37 / 修改时间：16:38:37" itemprop="dateCreated datePublished" datetime="2020-05-21T16:30:37+08:00">2020-05-21</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-21 01:26:27" itemprop="dateModified" datetime="2020-05-21T01:26:27+08:00">2020-05-21</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
                 </span>
             </span>
 
@@ -225,21 +219,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h5 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h5><p>最近发现之前写的爬学校教务系统的爬虫，其实可以通过另一个网站绕过验证码，<br>可怜我的机器学习验证码识别度还只有55%，突然才发现不需要验证码也可以了。<br>然后就发现另一个网站有重定向的问题，然后又发现了CAS认证机制,不过跟我这篇应该没多大关系吧。<br>想着写线程，就来学习一下Java的CAS机制，顺便做个笔记。</p>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h5 id="什么是CAS"><a href="#什么是CAS" class="headerlink" title="什么是CAS"></a>什么是CAS</h5><p>CAS全拼CompareAndSwap，翻译过来就是比较交换的意思<br>CAS机制中用来 3 个基本操作数：内存地址 V 指向的值,预期值 E,期望修改的新值 N.<br>仅当V指向的值与E相同时，修改输入新值N。<br>即比较V与E的值，相同时执行操作N。</p>
+<hr>
+<h5 id="在并发的情况下会使用到CAS机制，"><a href="#在并发的情况下会使用到CAS机制，" class="headerlink" title="在并发的情况下会使用到CAS机制，"></a>在并发的情况下会使用到CAS机制，</h5><p>线程A、B都是将 Val 增加 10<br>1、假设有线程 A 、B，同时操作变量val,线程 A、B 都获取了变量内存地址V，通过地址得到val=10（预期值E）.<br>2、在线程A要提交更新的时候（预期N更改val=20），线程B抢到了运行权，将B的内存地址指向的值E增加10（如果线程A、B都是修改为固定值不需要使用CAS，具体情况具体分析），使val=20,<br>3、当线程A执行更新时，会将地址V的实际值与预期值E进行比较发现 V!=E ,此时更新失败<br>4、线程A，重新获取内存地址V的当前值（自旋），继续执行上述步骤。</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CAS是一种乐观锁，之前学过的<span class="keyword">synchronized</span>是悲观锁</span><br><span class="line"><span class="keyword">synchronized</span>会在获取数据之后直接对数据上锁，执行完毕再释放资源。</span><br><span class="line">CAS则不会上锁，认为资源会得到释放，所以会不断尝试更新，但是会进行比较判断使用期间是否被更改。</span><br><span class="line"></span><br><span class="line">在JAVA1.<span class="number">6</span>以上版本，<span class="keyword">synchronized</span>转变为重量级锁之前，也会采用CAS机制。</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h5 id="CAS缺点："><a href="#CAS缺点：" class="headerlink" title="CAS缺点："></a>CAS缺点：</h5><h6 id="1、CPU开销过大"><a href="#1、CPU开销过大" class="headerlink" title="1、CPU开销过大"></a>1、CPU开销过大</h6><p>并发量大的情况下，如果多个线程反复尝试更新某一变量，却一直更新失败，会对CPU带来很大压力</p>
+<h6 id="2、不能保证代码块原子性"><a href="#2、不能保证代码块原子性" class="headerlink" title="2、不能保证代码块原子性"></a>2、不能保证代码块原子性</h6><p>CAS机制所保证的只是一个变量的原子性操作，而不能保证整个代码块的原子性。<br>比如需要保证3个变量共同进行原子性的更新，就不得不使用synchronized了。</p>
+<h6 id="3、ABA问题"><a href="#3、ABA问题" class="headerlink" title="3、ABA问题"></a>3、ABA问题</h6><p>假设一个变量 A，修改为 B之后又修改为 A，CAS 的机制是无法察觉的，<br>但实际上已经被修改过了。这就是ABA问题。</p>
+<p>举例：<br>线程A、B、C<br>线程A:修改栈顶中的值为A2<br>线程B:弹出栈顶元素,两次<br>假设栈中元素为 A1 A2 A1</p>
+<p>1、线程A获取栈顶元素为“A1”，期望更改为“A2”，在线程A准备执行更新时，线程B获得优先权<br>2、线程B进行弹栈操作，执行成功<br>3、此时栈中元素为A1<br>4、线程A获得执行权，比较预期值发现相同，此时更改A1为A2</p>
+<p>这里就导致本来本更改的A1应该改为A2之后被线程B弹出，栈中应该只有A1,可结果是只剩下A2<br>这就是ABA问题带来的影响</p>
+<p><strong>解决</strong>：将值比较更改为版本号比较<br>即将每次线程操作时，对操作数据版本号进行修改，通过比较版本号，确认是否被修改</p>
 
     </div>
 
@@ -265,7 +260,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://zhx1999.github.io/2018/01/23/hello-world/" title="Hello World">http://zhx1999.github.io/2018/01/23/hello-world/</a>
+    <a href="http://zhx1999.github.io/2020/05/21/CAS%E6%9C%BA%E5%88%B6/" title="CAS机制">http://zhx1999.github.io/2020/05/21/CAS机制/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -276,7 +271,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/Java-CAS-%E5%B9%B6%E5%8F%91/" rel="tag"># Java CAS 并发</a>
           </div>
 
         
@@ -284,11 +279,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2018/01/24/Win10,Linux%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="Win10,Linux下用hexo搭建个人博客">
-      Win10,Linux下用hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/05/21/%E7%88%AC%E8%99%AB/" rel="prev" title="爬虫总结">
+      <i class="fa fa-chevron-left"></i> 爬虫总结
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -347,7 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#什么是CAS"><span class="nav-text">什么是CAS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#在并发的情况下会使用到CAS机制，"><span class="nav-text">在并发的情况下会使用到CAS机制，</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CAS缺点："><span class="nav-text">CAS缺点：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、CPU开销过大"><span class="nav-text">1、CPU开销过大</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、不能保证代码块原子性"><span class="nav-text">2、不能保证代码块原子性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、ABA问题"><span class="nav-text">3、ABA问题</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
