@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhx1999.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Redis简介1234567Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。Redis 与其他 key - value 缓存产品有以下三个特点：Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。Red">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redis总结">
+<meta property="og:url" content="http://zhx1999.github.io/2020/05/27/redis/index.html">
+<meta property="og:site_name" content="咩灭乜">
+<meta property="og:description" content="Redis简介1234567Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。Redis 与其他 key - value 缓存产品有以下三个特点：Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。Red">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-27T14:27:38.000Z">
+<meta property="article:modified_time" content="2020-05-27T16:29:22.955Z">
+<meta property="article:author" content="zhx">
+<meta property="article:tag" content="redis Nosql数据库">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://zhx1999.github.io/2020/05/27/redis/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>redis总结 | 咩灭乜</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">咩灭乜</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">knowleges</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-bookmark fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-互动">
+
+    <a href="/guestbook/" rel="section"><i class="fa fa-comments fa-fw"></i>互动</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhx1999.github.io/2020/05/27/redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="zhx">
+      <meta itemprop="description" content="宁山间碎骨，沉河不浮，不愿守棺而驻，灵魂碌碌">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="咩灭乜">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          redis总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-27 22:27:38" itemprop="dateCreated datePublished" datetime="2020-05-27T22:27:38+08:00">2020-05-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-28 00:29:22" itemprop="dateModified" datetime="2020-05-28T00:29:22+08:00">2020-05-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/redis/" itemprop="url" rel="index"><span itemprop="name">redis</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Redis简介"><a href="#Redis简介" class="headerlink" title="Redis简介"></a>Redis简介</h2><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Redis 是完全开源免费的，遵守BSD协议，是一个高性能的<span class="built_in">key</span>-<span class="built_in">value</span>数据库。</span><br><span class="line"></span><br><span class="line">Redis 与其他 <span class="built_in">key</span> - <span class="built_in">value</span> 缓存产品有以下三个特点：</span><br><span class="line"></span><br><span class="line">Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。</span><br><span class="line">Redis不仅仅支持简单的<span class="built_in">key</span>-<span class="built_in">value</span>类型的数据，同时还提供list，<span class="built_in">set</span>，zset，hash等数据结构的存储。</span><br><span class="line">Redis支持数据的备份，即master-slave模式的数据备份。</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="Redis安装及配置"><a href="#Redis安装及配置" class="headerlink" title="Redis安装及配置"></a>Redis安装及配置</h2><p><strong>1.下载地址：</strong><a href="http://redis.io/download" target="_blank" rel="noopener">http://redis.io/download</a>，下载最新稳定版</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis<span class="number">-6.0</span><span class="number">.3</span>.tar.gz</span><br><span class="line">mv redis<span class="number">-6.0</span><span class="number">.3</span> /usr/local/redis</span><br><span class="line">cd /usr/local/redis</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>make之后会在 /usr/local/bin下生成redis-server、redis-cli等文件</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">启动</span><br><span class="line"><span class="keyword">cd</span> <span class="string">/usr/local/bin</span></span><br><span class="line">服务端</span><br><span class="line"><span class="string">./redis-server</span></span><br><span class="line">客户端</span><br><span class="line"><span class="string">./redis-cli</span></span><br></pre></td></tr></table></figure>
+
+<p>2.Redis配置</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">进入解压的Redis目录，将redis.<span class="keyword">conf</span>复制到安装文件的目录下</span><br><span class="line">cp redis.<span class="keyword">conf</span> /usr/<span class="keyword">local</span>/redis</span><br><span class="line">启动自定义配置的Redis</span><br><span class="line">./redis-server /usr/<span class="keyword">local</span>/redis/redis.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+
+<p>3.配置详解</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">daemonize ： 默认为<span class="literal">no</span>，修改为<span class="literal">yes</span>启用守护线程</span><br><span class="line">port ：设定端口号，默认为6379</span><br><span class="line">bind ：绑定IP地址</span><br><span class="line">databases ：数据库数量，默认16</span><br><span class="line">save &lt;second&gt; &lt;changes&gt; ：指定多少时间、有多少次更新操作，就将数据同步到数据文件</span><br><span class="line"><span class="comment">#redis默认配置有三个条件，满足一个即进行持久化</span></span><br><span class="line">save 900 1 #900s有1个更改</span><br><span class="line">save 300 10 #300s有10个更改</span><br><span class="line">save 60 10000 #60s有10000更改</span><br><span class="line">dbfilename ：指定本地数据库的文件名，默认为dump.rdb</span><br><span class="line">dir ：指定本地数据库的存放目录，默认为./当前文件夹</span><br><span class="line">requirepass ：设置密码，默认关闭</span><br><span class="line"></span><br><span class="line">redis -cli -h host -p<span class="built_in"> port </span>-a password 启动</span><br></pre></td></tr></table></figure>
+
+<p>4.Redis关闭</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用<span class="keyword">kill</span>命令 (非正常关闭，数据为保存则丢失)</span><br><span class="line">ps -ef|<span class="keyword">grep</span> -i redis</span><br><span class="line"><span class="keyword">kill</span> -<span class="number">9</span> PID</span><br><span class="line">正常关闭</span><br><span class="line">redis-cli中输入<span class="keyword">shutdown</span></span><br><span class="line">如果报错可能是文件权限问题</span><br></pre></td></tr></table></figure>
+
+<h2 id="Redis常用命令"><a href="#Redis常用命令" class="headerlink" title="Redis常用命令"></a>Redis常用命令</h2><p>Redis五种数据类型：string、hash、list、set、zset</p>
+<h6 id="共用命令"><a href="#共用命令" class="headerlink" title="共用命令"></a>共用命令</h6><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DEL <span class="built_in">key</span></span><br><span class="line">DUMP <span class="built_in">key</span>：序列化给定<span class="built_in">key</span>，返回被序列化的值</span><br><span class="line">EXISTS <span class="built_in">key</span>：检查<span class="built_in">key</span>是否存在</span><br><span class="line">EXPIRE <span class="built_in">key</span> second：为<span class="built_in">key</span>设定过期时间（常用于验证码，数据缓存，限时优惠活动，限制网站访问频率）</span><br><span class="line">TTL <span class="built_in">key</span>：返回<span class="built_in">key</span>剩余时间</span><br><span class="line">PERSIST <span class="built_in">key</span>：移除<span class="built_in">key</span>的过期时间，<span class="built_in">key</span>将持久保存</span><br><span class="line"><span class="built_in">KEY</span> pattern：查询所有符号给定模式的<span class="built_in">key</span></span><br><span class="line">RANDOM <span class="built_in">key</span>：随机返回一个<span class="built_in">key</span></span><br><span class="line">RANAME <span class="built_in">key</span> newkey：修改<span class="built_in">key</span>的名称</span><br><span class="line">MOVE <span class="built_in">key</span> db：移动<span class="built_in">key</span>至指定数据库中</span><br><span class="line"><span class="built_in">TYPE</span> <span class="built_in">key</span>：返回<span class="built_in">key</span>所储存的值的类型</span><br></pre></td></tr></table></figure>
+
+<h6 id="key命名建议"><a href="#key命名建议" class="headerlink" title="key命名建议"></a>key命名建议</h6><ol>
+<li>key不要太长，尽量不要超过1024字节。不仅消耗内存，也会降低查找的效率</li>
+<li>key不要太短，太短可读性会降低</li>
+<li>在一个项目中，key最好使用统一的命名模式，如user:123:password</li>
+<li>key区分大小写</li>
+</ol>
+<h5 id="string"><a href="#string" class="headerlink" title="string"></a>string</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>类型是二进制安全的，redis的<span class="built_in">string</span>可以包含任何数据，如图像、序列化对象。一个键最多能存储<span class="number">512</span>MB。==二进制安全是指，在传输数据的时候，能保证二进制数据的信息安全，也就是不会被篡改、破译；如果被攻击，能够及时检测出来</span><br></pre></td></tr></table></figure>
+
+<h6 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h6><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> <span class="keyword">key</span> <span class="keyword">value</span>：命令不区分大小写，但是key_name区分大小写</span><br><span class="line">SETNX <span class="keyword">key</span> <span class="keyword">value</span>：当<span class="keyword">key</span>不存在时设置<span class="keyword">key</span>的值。（<span class="keyword">SET</span> <span class="keyword">if</span> <span class="keyword">Not</span> <span class="keyword">eXists</span>）</span><br><span class="line"><span class="keyword">get</span> <span class="keyword">key</span></span><br><span class="line">GETRANGE <span class="keyword">key</span> <span class="keyword">start</span> <span class="keyword">end</span>：获取<span class="keyword">key</span>中字符串的子字符串，从<span class="keyword">start</span>开始，<span class="keyword">end</span>结束</span><br><span class="line">MGET key1 [key2 …]：获取多个<span class="keyword">key</span></span><br><span class="line">GETSET KEY_NAME <span class="keyword">VALUE</span>：设定<span class="keyword">key</span>的值，并返回<span class="keyword">key</span>的旧值。当<span class="keyword">key</span>不存在，返回nil</span><br><span class="line">STRLEN <span class="keyword">key</span>：返回<span class="keyword">key</span>所存储的字符串的长度</span><br><span class="line">INCR KEY_NAME ：INCR命令<span class="keyword">key</span>中存储的值+<span class="number">1</span>,如果不存在<span class="keyword">key</span>，则<span class="keyword">key</span>中的值话先被初始化为<span class="number">0</span>再加<span class="number">1</span></span><br><span class="line">INCRBY <span class="keyword">KEY</span> 增量</span><br><span class="line">DECR <span class="keyword">KEY</span> <span class="keyword">key</span>中的值自减一</span><br><span class="line">DECRBY <span class="keyword">KEY</span> 自减</span><br><span class="line">append key_name <span class="keyword">value</span>：字符串拼接，追加至末尾，如果不存在，为其赋值</span><br></pre></td></tr></table></figure>
+
+<h6 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h6><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="keyword">String</span>通常用于保存单个字符串或JSON字符串数据</span><br><span class="line"><span class="number">2</span>、因为<span class="keyword">String</span>是二进制安全的，所以可以把保密要求高的图片文件内容作为字符串来存储</span><br><span class="line"><span class="number">3</span>、计数器：常规<span class="keyword">Key</span>-<span class="keyword">Value</span>缓存应用，如微博数、粉丝数。INCR本身就具有原子性特性，所以不会有线程安全问题</span><br></pre></td></tr></table></figure>
+
+<h5 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h5><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Redis hash是一个<span class="built_in">string</span>类型的field和value的映射表，hash特别适用于存储对象。类似与Java中的对象。每个hash可以存储<span class="number">2</span>^<span class="number">32</span><span class="number">-1</span>键值对。可以看成KEY和VALUE的MAP容器。相比于JSON，hash占用很少的内存空间。</span><br></pre></td></tr></table></figure>
+
+<h6 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h6><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">HSET key_name field <span class="built_in">value</span>：为指定的<span class="built_in">key</span>设定field和<span class="built_in">value</span>（设置对象属性）</span><br><span class="line">hmset <span class="built_in">key</span> field <span class="built_in">value</span>[field1,value1]：设定多个field和<span class="built_in">value</span></span><br><span class="line">hget <span class="built_in">key</span> field：得到指定的field的<span class="built_in">value</span></span><br><span class="line">hmget <span class="built_in">key</span> field[field1]：得到多个指定的field的<span class="built_in">value</span></span><br><span class="line">hgetall <span class="built_in">key</span>：返回<span class="built_in">key</span>(对象)中所有字段和值</span><br><span class="line">hkeys <span class="built_in">key</span>：获取<span class="built_in">key</span>（对象）中所有字段的值</span><br><span class="line">hlen <span class="built_in">key</span>：获取<span class="built_in">key</span>（对象）中的字段数量</span><br><span class="line"><span class="built_in">hdel</span> <span class="built_in">key</span> field [field1]：删除一个或多个<span class="built_in">key</span>（对象）中的字段</span><br></pre></td></tr></table></figure>
+
+<h6 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h6><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hash的应用场景，通常用来存储一个用户信息的对象数据。</span><br><span class="line"><span class="number">1</span>、相比于存储对象的<span class="type">string</span>类型的json串，json串修改单个属性需要将整个值取出来（操作麻烦，运行还需要内存）。而hash不需要。</span><br><span class="line"><span class="number">2</span>、相比于多个<span class="type">key</span>-value存储对象，hash节省了很多内存空间。<span class="type">string</span>会存储大量重复数据</span><br><span class="line"><span class="number">3</span>、如果hash的属性值被删除完，那么hash的<span class="type">key</span>也会被redis自动删除</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+    <div>
+    
+    <div>
+
+<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div> 
+
+</div>
+
+    
+    </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>zhx
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://zhx1999.github.io/2020/05/27/redis/" title="redis总结">http://zhx1999.github.io/2020/05/27/redis/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis-Nosql%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># redis Nosql数据库</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/21/CAS%E6%9C%BA%E5%88%B6/" rel="prev" title="CAS机制">
+      <i class="fa fa-chevron-left"></i> CAS机制
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis简介"><span class="nav-text">Redis简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis安装及配置"><span class="nav-text">Redis安装及配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis常用命令"><span class="nav-text">Redis常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#共用命令"><span class="nav-text">共用命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#key命名建议"><span class="nav-text">key命名建议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string"><span class="nav-text">string</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#命令"><span class="nav-text">命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用场景"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hash"><span class="nav-text">Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#常用命令"><span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用场景-1"><span class="nav-text">应用场景</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhx"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">zhx</p>
+  <div class="site-description" itemprop="description">宁山间碎骨，沉河不浮，不愿守棺而驻，灵魂碌碌</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhx1999" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhx1999" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhanghuanxin10@qq.com" title="E-Mail → mailto:zhanghuanxin10@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="tencent://message/?uin=1257047441&Site=&menu=yes" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;1257047441&amp;Site&#x3D;&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="qq fa-fw"></i>QQ</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zhx</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='255,0,255' opacity='0.7' zIndex='-1' count='140' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
