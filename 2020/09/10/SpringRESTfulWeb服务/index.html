@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"zhx1999.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+  <meta name="description" content="前言：杂七杂八的东西sprng4.3之后出现了｛@GetMapping、@PostMapping、@PutMapping、@DeleteMapping、@PatchMapping｝ 来帮助简化常用的HTTP方法的映射 并更好地表达被注解方法的语义 ,该注解将HTTP Get 映射到 特定的处理方法上">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://zhx1999.github.io/2018/01/23/hello-world/index.html">
+<meta property="og:title" content="SpringBoot RESTful Web服务">
+<meta property="og:url" content="http://zhx1999.github.io/2020/09/10/SpringRESTfulWeb%E6%9C%8D%E5%8A%A1/index.html">
 <meta property="og:site_name" content="咩灭乜">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="前言：杂七杂八的东西sprng4.3之后出现了｛@GetMapping、@PostMapping、@PutMapping、@DeleteMapping、@PatchMapping｝ 来帮助简化常用的HTTP方法的映射 并更好地表达被注解方法的语义 ,该注解将HTTP Get 映射到 特定的处理方法上">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2018-01-23T09:14:51.000Z">
-<meta property="article:modified_time" content="2020-05-20T17:26:27.624Z">
+<meta property="article:published_time" content="2020-09-10T02:58:59.000Z">
+<meta property="article:modified_time" content="2020-09-10T06:35:09.702Z">
 <meta property="article:author" content="zhx">
-<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="SpringBoot RESTful web">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://zhx1999.github.io/2018/01/23/hello-world/">
+<link rel="canonical" href="http://zhx1999.github.io/2020/09/10/SpringRESTfulWeb%E6%9C%8D%E5%8A%A1/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>Hello World | 咩灭乜</title>
+  <title>SpringBoot RESTful Web服务 | 咩灭乜</title>
   
 
 
@@ -172,7 +172,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhx1999.github.io/2018/01/23/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://zhx1999.github.io/2020/09/10/SpringRESTfulWeb%E6%9C%8D%E5%8A%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -185,7 +185,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          SpringBoot RESTful Web服务
         </h1>
 
         <div class="post-meta">
@@ -194,24 +194,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2018-01-23 17:14:51" itemprop="dateCreated datePublished" datetime="2018-01-23T17:14:51+08:00">2018-01-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-21 01:26:27" itemprop="dateModified" datetime="2020-05-21T01:26:27+08:00">2020-05-21</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-                </span>
+              <time title="创建时间：2020-09-10 10:58:59 / 修改时间：14:35:09" itemprop="dateCreated datePublished" datetime="2020-09-10T10:58:59+08:00">2020-09-10</time>
             </span>
 
           
@@ -225,21 +210,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <h5 id="前言：杂七杂八的东西"><a href="#前言：杂七杂八的东西" class="headerlink" title="前言：杂七杂八的东西"></a><strong>前言</strong>：杂七杂八的东西</h5><p>sprng4.3之后出现了｛@GetMapping、@PostMapping、@PutMapping、@DeleteMapping、@PatchMapping｝ 来帮助简化常用的HTTP方法的映射 并更好地表达被注解方法的语义 ,该注解将HTTP Get 映射到 特定的处理方法上</p>
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>@GetMapping是一个组合注解 是@RequestMapping(method = RequestMethod.GET)的缩写<br>@PostMapping是一个组合注解 是@RequestMapping(method = RequestMethod.POST)的缩写</p>
+<p><strong>日常小陷阱</strong></p>
+<p><strong>网址输入请求地址的默认方法是get方法</strong></p>
+<p>在使用PostMapper的时候，如果是想试一试效果，可以换成RequestMapper，不过方法就不对了哈哈，也可以写个页面，提交一下方法吧，可以看我后续写的代码，虽然只有一部分</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@PostMapper</span>(<span class="string">"/post"</span>)</span><br><span class="line">---&gt;<span class="variable">@RequestMapper</span>(<span class="string">"/post"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable">@RequestMapper</span>没有默认值，如果不配置method， 则以任何请求形式 </span><br><span class="line">RequestMethod.GET， RequestMethod.POST， RequestMethod.PUT， RequestMethod.DELETE都可以访问得到</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h4 id="什么是RESTful"><a href="#什么是RESTful" class="headerlink" title="什么是RESTful"></a>什么是RESTful</h4><p>RESTful其实是一种设计风格，<br>Representational State Transfer （缩写：REST）直译就是表现层状态转换，它是一种便于不同软件/程序在网络中互相传递信息 的架构风格。符合这种架构风格的网络服务 可被称为 RESTful 风格。</p>
+<h4 id="RESTFUL特点"><a href="#RESTFUL特点" class="headerlink" title="RESTFUL特点"></a>RESTFUL特点</h4><p>1、<strong>资源</strong>：每一个 URI 都代表一种资源；<br>2、<strong>方法</strong>：客户端使用GET、POST、PUT、DELETE4个表示操作方式的动词对服务端资源进行操作：GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源；<br>3、<strong>方法操作资源</strong>：通过不同方法来操作资源，导致了资源不同的表现形式。<br>4、<strong>操作结果表现</strong>：资源的表现形式可以是JSON，XML或者HTML等；<br>5、<strong>无状态</strong>：客户端与服务端之间的交互在请求之间是无状态的，从客户端到服务端的每个请求都必须包含理解请求所必需的信息。</p>
+<p><strong>特点解释：</strong></p>
+<p>在开发的过程中，我们可以自写同一个请求地址，但是方法不一样的方法，这样springboot会根据<strong>方法的不同</strong>对资源进行<strong>不同的操作</strong><br>比如可以写成这样</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET <span class="meta-keyword">/rest/</span>api/cats 获取所有猫咪 </span><br><span class="line">POST <span class="meta-keyword">/rest/</span>api/cats 添加一只小猫咪 </span><br><span class="line">PUT <span class="meta-keyword">/rest/</span>api<span class="meta-keyword">/cats/</span>:cat_id 修改一只小猫 </span><br><span class="line">DELETE <span class="meta-keyword">/rest/</span>api<span class="meta-keyword">/cats/</span>:cat_id 删除一只小猫</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>不同的操作返回不同的响应数据，比如get返回单个对象或者是资源列表啥的，post返回新建的数据对象，delete返回空等。</p>
+<p>HTTP动词</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">GET</span>     <span class="string">获取一个资源 </span></span><br><span class="line"><span class="attr">POST</span>    <span class="string">添加一个资源 </span></span><br><span class="line"><span class="attr">PUT</span>     <span class="string">修改一个资源 </span></span><br><span class="line"><span class="attr">DELETE</span>  <span class="string">删除一个资源</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>HTTP状态码</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">200 </span>OK 交互成功</span><br><span class="line"><span class="symbol">400 </span>Bad Request 客户端错误 </span><br><span class="line"><span class="symbol">500 </span>Internal Server <span class="keyword">Error</span> 服务端错误</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<p>RESTful的操作是使用标准的HTTP动词来体现。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(<span class="meta-string">"/test"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> String testGetMapping(Model model)&#123;</span><br><span class="line">        model.addAttribute(<span class="string">"msg"</span>,<span class="string">"测试@GetMapper注解"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"sucess"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@PostMapping(<span class="meta-string">"/test"</span>)</span></span><br><span class="line">    <span class="keyword">public</span> String testPostMapping(Model model) &#123;</span><br><span class="line">        model.addAttribute(<span class="string">"msg"</span>,<span class="string">"测试@PostMapping注解"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"sucess"</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>还有一个优点是减少了服务端的缓存，用SOAP协议的确写了很多东西，增加了缓存的压力。也很好的减少交互次数以及交互的平均延迟</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>开发上，操作起来简单了很多，看看方法名，请求的方法就知道要干嘛了，而且对维护真的方便了好多。<br>对服务器就是缓存方便了，可惜我没啥特别大的数据给我测试哈哈，不过肯定是有优化的。<br>restful风格2000年就提出来了，可惜我最近才发现，进行了一下学习，虽然还是感觉没能完全掌握它的精髓，不过慢慢来吧，顺便把自己的项目风格换一换。</p>
 
     </div>
 
@@ -265,7 +262,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://zhx1999.github.io/2018/01/23/hello-world/" title="Hello World">http://zhx1999.github.io/2018/01/23/hello-world/</a>
+    <a href="http://zhx1999.github.io/2020/09/10/SpringRESTfulWeb%E6%9C%8D%E5%8A%A1/" title="SpringBoot RESTful Web服务">http://zhx1999.github.io/2020/09/10/SpringRESTfulWeb服务/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-cn" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -276,7 +273,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/SpringBoot-RESTful-web/" rel="tag"># SpringBoot RESTful web</a>
           </div>
 
         
@@ -284,10 +281,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2018/01/24/Win10,Linux%E4%B8%8B%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" rel="next" title="Win10,Linux下用hexo搭建个人博客">
-      Win10,Linux下用hexo搭建个人博客 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/07/spring/" rel="prev" title="spring">
+      <i class="fa fa-chevron-left"></i> spring
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/10/SpringBoot-jsp-%E9%9D%99%E6%80%81/" rel="next" title="SpringBoot读取jsp和静态资源">
+      SpringBoot读取jsp和静态资源 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -347,7 +347,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#前言：杂七杂八的东西"><span class="nav-text">前言：杂七杂八的东西</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是RESTful"><span class="nav-text">什么是RESTful</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RESTFUL特点"><span class="nav-text">RESTFUL特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结："><span class="nav-text">总结：</span></a></div>
       </div>
       <!--/noindex-->
 
