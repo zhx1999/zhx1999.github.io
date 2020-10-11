@@ -28,7 +28,7 @@
 <meta property="og:description" content="简介1234567Redis 是完全开源免费的，遵守BSD协议，是一个高性能的key-value数据库。Redis 与其他 key - value 缓存产品有以下三个特点：Redis支持数据的持久化，可以将内存中的数据保存在磁盘中，重启的时候可以再次加载进行使用。Redis不仅仅支持简单的key-value类型的数据，同时还提供list，set，zset，hash等数据结构的存储。Redis支持数">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-27T14:27:38.000Z">
-<meta property="article:modified_time" content="2020-09-10T06:33:12.819Z">
+<meta property="article:modified_time" content="2020-10-11T15:46:38.111Z">
 <meta property="article:author" content="zhx">
 <meta property="article:tag" content="redis Nosql数据库">
 <meta name="twitter:card" content="summary">
@@ -202,7 +202,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-10 14:33:12" itemprop="dateModified" datetime="2020-09-10T14:33:12+08:00">2020-09-10</time>
+                <time title="修改时间：2020-10-11 23:46:38" itemprop="dateModified" datetime="2020-10-11T23:46:38+08:00">2020-10-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -265,6 +265,7 @@
 
 <h6 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h6><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hash的应用场景，通常用来存储一个用户信息的对象数据。</span><br><span class="line"><span class="number">1</span>、相比于存储对象的<span class="type">string</span>类型的json串，json串修改单个属性需要将整个值取出来（操作麻烦，运行还需要内存）。而hash不需要。</span><br><span class="line"><span class="number">2</span>、相比于多个<span class="type">key</span>-value存储对象，hash节省了很多内存空间。<span class="type">string</span>会存储大量重复数据</span><br><span class="line"><span class="number">3</span>、如果hash的属性值被删除完，那么hash的<span class="type">key</span>也会被redis自动删除</span><br></pre></td></tr></table></figure>
 
+<h5 id="小知识"><a href="#小知识" class="headerlink" title="小知识"></a>小知识</h5><p><code>springboot事务管理对redis不起作用</code><br><code>1、redis是非持续化对象更新数据，所以@Transactional无法发挥作用</code><br><code>2、更新数据库时应该直接删除redis缓存的数据，防止多线程重复更新</code></p>
 
     </div>
 
@@ -375,7 +376,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis安装及配置"><span class="nav-text">Redis安装及配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis常用命令"><span class="nav-text">Redis常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#共用命令"><span class="nav-text">共用命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#key命名建议"><span class="nav-text">key命名建议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string"><span class="nav-text">string</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#命令"><span class="nav-text">命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用场景"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hash"><span class="nav-text">Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#常用命令"><span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用场景-1"><span class="nav-text">应用场景</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis安装及配置"><span class="nav-text">Redis安装及配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis常用命令"><span class="nav-text">Redis常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#共用命令"><span class="nav-text">共用命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#key命名建议"><span class="nav-text">key命名建议</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#string"><span class="nav-text">string</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#命令"><span class="nav-text">命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用场景"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hash"><span class="nav-text">Hash</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#常用命令"><span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#应用场景-1"><span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#小知识"><span class="nav-text">小知识</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +392,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -404,7 +405,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
